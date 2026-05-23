@@ -12,6 +12,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bailey Ryan</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -524,51 +525,6 @@
     section:nth-child(3) { animation-delay: 0.15s; }
     section:nth-child(4) { animation-delay: 0.2s; }
     section:nth-child(5) { animation-delay: 0.25s; }
-
-    /* COOKIE */
-    #cookie-banner {
-      position: fixed;
-      bottom: 20px; left: 50%;
-      transform: translateX(-50%);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 13px 18px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 11px;
-      color: var(--muted);
-      z-index: 100;
-      max-width: 500px;
-      width: calc(100% - 40px);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      animation: slideUp 0.4s 2s ease both;
-      opacity: 0;
-    }
-    @media (prefers-color-scheme: dark) {
-      #cookie-banner { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
-    }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateX(-50%) translateY(10px); }
-      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-    }
-    #cookie-banner span { flex: 1; line-height: 1.6; }
-    .cookie-btn {
-      background: var(--accent); color: #fff; border: none;
-      font-family: var(--mono); font-size: 9px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 7px 13px; cursor: pointer; white-space: nowrap;
-      flex-shrink: 0; transition: opacity 0.2s;
-    }
-    .cookie-btn:hover { opacity: 0.85; }
-    .cookie-dismiss {
-      background: transparent; border: 1px solid var(--border);
-      color: var(--muted); font-family: var(--mono); font-size: 9px;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 7px 11px; cursor: pointer; flex-shrink: 0;
-      transition: border-color 0.2s;
-    }
-    .cookie-dismiss:hover { border-color: var(--border2); }
   </style>
 </head>
 <body>
@@ -859,11 +815,6 @@
 
 </div>
 
-<div id="cookie-banner" role="dialog" aria-label="Cookie notice">
-  <span>This site uses cookies to remember your preferences. No data is sold.</span>
-  <button class="cookie-btn" id="cookie-accept">Accept</button>
-  <button class="cookie-dismiss" id="cookie-decline">Decline</button>
-</div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -906,16 +857,6 @@
     localStorage.setItem('br_theme', isDark ? 'dark' : 'light');
     applyTheme();
   });
-
-  // Cookie
-  const banner = document.getElementById('cookie-banner');
-  const KEY = 'br_cookie_consent';
-  function setCookie(n,v,d) { document.cookie=`${n}=${v}; expires=${new Date(Date.now()+d*864e5).toUTCString()}; path=/; SameSite=Lax`; }
-  function getCookie(n) { return document.cookie.split('; ').reduce((r,v)=>{const p=v.split('=');return p[0]===n?p[1]:r;},null); }
-  if (getCookie(KEY)) banner.style.display='none';
-  function hideBanner() { banner.style.transition='opacity 0.3s'; banner.style.opacity='0'; setTimeout(()=>banner.style.display='none',300); }
-  document.getElementById('cookie-accept').addEventListener('click',()=>{setCookie(KEY,'accepted',365);hideBanner();});
-  document.getElementById('cookie-decline').addEventListener('click',()=>{setCookie(KEY,'declined',30);hideBanner();});
 
   // Carousel
   const slides = document.querySelectorAll('.testimonial');
