@@ -127,6 +127,22 @@
       color: var(--text);
       margin-bottom: 12px;
     }
+    #name-egg { cursor: default; }
+    #name-egg .egg-letter {
+      display: inline-block;
+      transition: color 0.4s ease;
+      will-change: transform;
+    }
+    #name-egg:hover .egg-letter {
+      animation: nameWave 0.6s ease;
+      animation-delay: calc(var(--i) * 45ms);
+      color: var(--gold);
+    }
+    @keyframes nameWave {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      30% { transform: translateY(-14px) rotate(-6deg); }
+      60% { transform: translateY(0) rotate(0); }
+    }
     .tagline-strip {
       font-size: 10px;
       letter-spacing: 0.2em;
@@ -536,7 +552,7 @@
   <header>
     <div>
       <p class="eyebrow">NYC</p>
-      <h1>Bailey Ryan</h1>
+      <h1 id="name-egg">Bailey Ryan</h1>
       <div class="tagline-strip">Listen <span>|</span> Challenge <span>|</span> Commit</div>
       <p class="subtitle">
         <strong>M.S. Technology Commercialization &amp; Entrepreneurship, RPI.</strong>
@@ -665,10 +681,11 @@
       <div class="beyond-card">
         <p class="beyond-card-label">Favorite spots in NYC</p>
         <div class="list-items">
-          <div class="list-item"><div><strong>Water &amp; Wheat</strong> <span style="color:var(--muted)">— Upper East Side. Menu changes, order doesn't</span></div></div>
+          <div class="list-item"><div><strong>Water &amp; Wheat</strong> <span style="color:var(--muted)">— Upper East Side. Just really good food</span></div></div>
           <div class="list-item"><div><strong>Comedy Cellar</strong> <span style="color:var(--muted)">— MacDougal Street</span></div></div>
           <div class="list-item"><div><strong>NYC Ferry</strong> <span style="color:var(--muted)">— Wall St to 90th is a summer must</span></div></div>
           <div class="list-item"><div><strong>Forest Hills Stadium</strong> <span style="color:var(--muted)">— best show I saw there was The Strokes</span></div></div>
+          <div class="list-item"><div><strong>Governors Island</strong> <span style="color:var(--muted)">— caught the sailboat races off the shore once, unreal</span></div></div>
         </div>
       </div>
 
@@ -907,6 +924,23 @@
       else { btn2.textContent='Try again →'; btn2.disabled=false; }
     } catch { btn2.textContent='Try again →'; btn2.disabled=false; }
   });
+
+  // Easter egg: wave the name letters on hover
+  (function () {
+    const el = document.getElementById('name-egg');
+    if (!el) return;
+    const text = el.textContent;
+    el.textContent = '';
+    let i = 0;
+    for (const ch of text) {
+      if (ch === ' ') { el.appendChild(document.createTextNode(' ')); continue; }
+      const span = document.createElement('span');
+      span.className = 'egg-letter';
+      span.textContent = ch;
+      span.style.setProperty('--i', i++);
+      el.appendChild(span);
+    }
+  })();
 </script>
 </body>
 </html>
