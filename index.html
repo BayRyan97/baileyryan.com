@@ -18,35 +18,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f9f8f6;
-      --bg2: #f0ede8;
-      --surface: #ffffff;
-      --border: #e0dbd2;
-      --border2: #ccc8be;
-      --text: #1a1a1a;
-      --muted: #6b6560;
-      --accent: #b85c38;
-      --gold: #d4a853;
-      --gold-dim: rgba(212,168,83,0.15);
-      --accent-dim: rgba(184,92,56,0.08);
+      --bg: #0d1117;
+      --bg2: #0a0f1a;
+      --surface: #161b22;
+      --border: #30363d;
+      --border2: #3d4450;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #00a19c;
+      --gold: #a17900;
+      --gold-dim: rgba(161,121,0,0.16);
+      --accent-dim: rgba(0,161,156,0.14);
+      --rose: #c21f6d;
+      --rose-dim: rgba(194,31,109,0.16);
       --serif: 'Playfair Display', Georgia, serif;
       --mono: 'IBM Plex Mono', monospace;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #1a1a1a;
-        --bg2: #222220;
-        --surface: #2b2b28;
-        --border: #3a3830;
-        --border2: #4a4840;
-        --text: #e0dbd2;
-        --muted: #8a847c;
-        --accent: #b85c38;
-        --gold: #d4a853;
-        --gold-dim: rgba(212,168,83,0.12);
-        --accent-dim: rgba(184,92,56,0.12);
-      }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,7 +56,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(to right, var(--accent), var(--gold));
+      background: linear-gradient(to right, var(--accent), #007f7b);
       z-index: 10;
     }
 
@@ -79,23 +65,6 @@
       margin: 0 auto;
       padding: 0 32px;
     }
-
-    /* THEME TOGGLE */
-    .theme-toggle {
-      position: fixed;
-      top: 20px; right: 24px;
-      z-index: 20;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      padding: 6px 12px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .theme-toggle:hover { color: var(--text); border-color: var(--border2); }
 
     /* HEADER */
     header {
@@ -117,6 +86,7 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
+      font-weight: 600;
       margin-bottom: 16px;
     }
     h1 {
@@ -134,14 +104,20 @@
       will-change: transform;
     }
     #name-egg:hover .egg-letter {
-      animation: nameWave 0.6s ease;
-      animation-delay: calc(var(--i) * 45ms);
-      color: var(--gold);
+      animation: nameWave 0.85s ease-in-out;
+      animation-delay: calc(var(--i) * 55ms);
+      color: var(--accent);
     }
     @keyframes nameWave {
-      0%, 100% { transform: translateY(0) rotate(0); }
-      30% { transform: translateY(-14px) rotate(-6deg); }
-      60% { transform: translateY(0) rotate(0); }
+      0%   { transform: translateY(0) rotate(0deg); }
+      12%  { transform: translateY(-8px) rotate(-4deg); }
+      25%  { transform: translateY(-15px) rotate(-7deg); }
+      38%  { transform: translateY(-13px) rotate(-5deg); }
+      50%  { transform: translateY(-6px) rotate(-1deg); }
+      62%  { transform: translateY(-9px) rotate(2deg); }
+      74%  { transform: translateY(-4px) rotate(1deg); }
+      86%  { transform: translateY(-1px) rotate(0deg); }
+      100% { transform: translateY(0) rotate(0deg); }
     }
     .tagline-strip {
       font-size: 10px;
@@ -170,6 +146,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
+      font-weight: 600;
       text-decoration: none;
       border: 1px solid var(--border);
       padding: 7px 14px;
@@ -224,6 +201,7 @@
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--accent);
+      font-weight: 600;
       margin-bottom: 28px;
       display: flex;
       align-items: center;
@@ -291,6 +269,8 @@
       margin-bottom: 2px;
     }
     .work-co.gold { color: var(--gold); }
+    .section-label.gold { color: var(--gold); }
+    .section-label.rose { color: var(--rose); }
     .rygrove-tags {
       display: flex;
       flex-wrap: wrap;
@@ -545,8 +525,6 @@
 </head>
 <body>
 
-<button class="theme-toggle" id="theme-toggle">Dark</button>
-
 <div class="container">
 
   <header>
@@ -555,7 +533,7 @@
       <h1 id="name-egg">Bailey Ryan</h1>
       <div class="tagline-strip">Listen <span>|</span> Challenge <span>|</span> Commit</div>
       <p class="subtitle">
-        <strong>M.S. Technology Commercialization &amp; Entrepreneurship, RPI.</strong>
+        <strong>Product Operations at Dispatch · M.S. from RPI.</strong>
         I find where humans are doing work that software should be doing — and build the thing that fixes it.
       </p>
       <nav class="nav-row">
@@ -579,7 +557,7 @@
 
   <!-- WORK -->
   <section>
-    <p class="section-label">Work</p>
+    <p class="section-label gold">Work</p>
 
     <div class="work-item rygrove">
       <div>
@@ -644,7 +622,7 @@
 
   <!-- SKILLS -->
   <section>
-    <p class="section-label">Tools</p>
+    <p class="section-label rose">Tools</p>
     <div class="skills-wrap">
       <a class="skill-tag" href="https://en.wikipedia.org/wiki/SQL" target="_blank" rel="noopener">SQL</a>
       <a class="skill-tag" href="https://en.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener">JavaScript</a>
@@ -716,7 +694,7 @@
 
   <!-- EDUCATION -->
   <section>
-    <p class="section-label">Education</p>
+    <p class="section-label gold">Education</p>
 
     <div class="work-item">
       <div>
@@ -739,7 +717,7 @@
 
   <!-- TESTIMONIALS -->
   <section>
-    <p class="section-label">What People Say</p>
+    <p class="section-label rose">What People Say</p>
     <div class="testimonial-carousel">
       <div class="testimonial-track">
 
@@ -856,45 +834,6 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Theme toggle — overrides prefers-color-scheme
-  const root = document.documentElement;
-  const btn = document.getElementById('theme-toggle');
-  const saved = localStorage.getItem('br_theme');
-  let isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  function applyTheme() {
-    if (isDark) {
-      root.style.setProperty('--bg', '#1a1a1a');
-      root.style.setProperty('--bg2', '#222220');
-      root.style.setProperty('--surface', '#2b2b28');
-      root.style.setProperty('--border', '#3a3830');
-      root.style.setProperty('--border2', '#4a4840');
-      root.style.setProperty('--text', '#e0dbd2');
-      root.style.setProperty('--muted', '#8a847c');
-      root.style.setProperty('--accent-dim', 'rgba(184,92,56,0.12)');
-      root.style.setProperty('--gold-dim', 'rgba(212,168,83,0.12)');
-      btn.textContent = 'Light';
-    } else {
-      root.style.setProperty('--bg', '#f9f8f6');
-      root.style.setProperty('--bg2', '#f0ede8');
-      root.style.setProperty('--surface', '#ffffff');
-      root.style.setProperty('--border', '#e0dbd2');
-      root.style.setProperty('--border2', '#ccc8be');
-      root.style.setProperty('--text', '#1a1a1a');
-      root.style.setProperty('--muted', '#6b6560');
-      root.style.setProperty('--accent-dim', 'rgba(184,92,56,0.08)');
-      root.style.setProperty('--gold-dim', 'rgba(212,168,83,0.15)');
-      btn.textContent = 'Dark';
-    }
-  }
-
-  applyTheme();
-  btn.addEventListener('click', () => {
-    isDark = !isDark;
-    localStorage.setItem('br_theme', isDark ? 'dark' : 'light');
-    applyTheme();
-  });
 
   // Carousel
   const slides = document.querySelectorAll('.testimonial');
