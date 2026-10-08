@@ -101,23 +101,9 @@
     #name-egg .egg-letter {
       display: inline-block;
       transition: color 0.4s ease;
-      will-change: transform;
     }
     #name-egg:hover .egg-letter {
-      animation: nameWave 0.85s ease-in-out;
-      animation-delay: calc(var(--i) * 55ms);
       color: var(--accent);
-    }
-    @keyframes nameWave {
-      0%   { transform: translateY(0) rotate(0deg); }
-      12%  { transform: translateY(-8px) rotate(-4deg); }
-      25%  { transform: translateY(-15px) rotate(-7deg); }
-      38%  { transform: translateY(-13px) rotate(-5deg); }
-      50%  { transform: translateY(-6px) rotate(-1deg); }
-      62%  { transform: translateY(-9px) rotate(2deg); }
-      74%  { transform: translateY(-4px) rotate(1deg); }
-      86%  { transform: translateY(-1px) rotate(0deg); }
-      100% { transform: translateY(0) rotate(0deg); }
     }
     .tagline-strip {
       font-size: 10px;
@@ -892,7 +878,7 @@
     } catch { btn2.textContent='Try again →'; btn2.disabled=false; }
   });
 
-  // Easter egg: wave the name letters on hover
+  // Easter egg: name letters change color on hover
   (function () {
     const el = document.getElementById('name-egg');
     if (!el) return;
