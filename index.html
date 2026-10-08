@@ -25,11 +25,12 @@
       --border2: #3d4450;
       --text: #e5e7eb;
       --muted: #9ca3af;
+      --faint: #798599;
       --accent: #00a19c;
-      --gold: #a17900;
+      --gold: #a97f00;
       --gold-dim: rgba(161,121,0,0.16);
       --accent-dim: rgba(0,161,156,0.14);
-      --rose: #c21f6d;
+      --rose: #e24992;
       --rose-dim: rgba(194,31,109,0.16);
       --serif: 'Playfair Display', Georgia, serif;
       --mono: 'IBM Plex Mono', monospace;
@@ -42,7 +43,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: var(--mono);
-      font-weight: 300;
+      font-weight: 400;
       font-size: 14px;
       line-height: 1.7;
       min-height: 100vh;
@@ -128,7 +129,7 @@
     }
 
     .eyebrow {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
@@ -152,7 +153,7 @@
       color: var(--accent);
     }
     .tagline-strip {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
@@ -174,7 +175,7 @@
       flex-wrap: wrap;
     }
     .nav-link {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
@@ -247,7 +248,7 @@
     section:last-of-type { border-bottom: none; }
 
     .section-label {
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--accent);
@@ -291,7 +292,7 @@
       margin-bottom: 3px;
     }
     .work-co {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
@@ -303,7 +304,7 @@
       line-height: 1.8;
     }
     .work-date {
-      font-size: 10px;
+      font-size: 11px;
       color: var(--muted);
       white-space: nowrap;
       letter-spacing: 0.04em;
@@ -328,7 +329,7 @@
       margin-top: 10px;
     }
     .rygrove-tag {
-      font-size: 10px;
+      font-size: 11px;
       padding: 3px 9px;
       border: 1px solid var(--border2);
       color: var(--muted);
@@ -398,7 +399,7 @@
       letter-spacing: 0.04em;
     }
     .testimonial-role {
-      font-size: 10px;
+      font-size: 11px;
       color: var(--muted);
       letter-spacing: 0.04em;
     }
@@ -441,7 +442,7 @@
       border-radius: 3px;
     }
     .carousel-count {
-      font-size: 10px;
+      font-size: 11px;
       color: var(--muted);
       letter-spacing: 0.08em;
       margin-left: auto;
@@ -461,7 +462,7 @@
       padding: 20px;
     }
     .beyond-card-label {
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
@@ -500,7 +501,7 @@
 
     form { display: flex; flex-direction: column; gap: 12px; }
     .field-label {
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);
@@ -514,7 +515,7 @@
       color: var(--text);
       font-family: var(--mono);
       font-size: 12px;
-      font-weight: 300;
+      font-weight: 400;
       padding: 11px 13px;
       outline: none;
       transition: border-color 0.2s;
@@ -523,15 +524,15 @@
     }
     input:focus, textarea:focus, select:focus { border-color: var(--accent); }
     textarea { min-height: 80px; }
-    input::placeholder, textarea::placeholder { color: var(--border2); }
+    input::placeholder, textarea::placeholder { color: var(--faint); }
     select option { background: var(--surface); }
 
     .submit-btn {
       background: var(--accent);
-      color: #fff;
+      color: var(--bg);
       border: none;
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -560,7 +561,7 @@
       gap: 12px;
     }
     .footer-name { font-family: var(--serif); font-size: 18px; color: var(--muted); }
-    .footer-right { font-size: 10px; color: var(--border2); letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-right { font-size: 11px; color: var(--faint); letter-spacing: 0.1em; text-transform: uppercase; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(14px); }
